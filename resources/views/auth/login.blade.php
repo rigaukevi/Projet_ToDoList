@@ -1,55 +1,45 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-md-8 col-md-offset-2">
+	<div class="container">
+		<div class="col-sm-offset-2 col-sm-8">
 			<div class="panel panel-default">
-				<div class="panel-heading">Login</div>
+				<div class="panel-heading">
+					Login
+				</div>
+
 				<div class="panel-body">
-					@if (count($errors) > 0)
-						<div class="alert alert-danger">
-							<strong>Whoops!</strong> There were some problems with your input.<br><br>
-							<ul>
-								@foreach ($errors->all() as $error)
-									<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
-					@endif
+					<!-- Display Validation Errors -->
+					@include('common.errors')
 
-					<form class="form-horizontal" role="form" method="POST" action="{{ url('/auth/login') }}">
-						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+							<!-- New Task Form -->
+					<form action="/auth/login" method="POST" class="form-horizontal">
+						{{ csrf_field() }}
 
+								<!-- E-Mail Address -->
 						<div class="form-group">
-							<label class="col-md-4 control-label">E-Mail Address</label>
-							<div class="col-md-6">
-								<input type="email" class="form-control" name="email" value="{{ old('email') }}">
+							<label for="email" class="col-sm-3 control-label">E-Mail</label>
+
+							<div class="col-sm-6">
+								<input type="email" name="email" class="form-control" value="{{ old('email') }}">
 							</div>
 						</div>
 
+						<!-- Password -->
 						<div class="form-group">
-							<label class="col-md-4 control-label">Password</label>
-							<div class="col-md-6">
-								<input type="password" class="form-control" name="password">
+							<label for="password" class="col-sm-3 control-label">Password</label>
+
+							<div class="col-sm-6">
+								<input type="password" name="password" class="form-control">
 							</div>
 						</div>
 
+						<!-- Login Button -->
 						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<div class="checkbox">
-									<label>
-										<input type="checkbox" name="remember"> Remember Me
-									</label>
-								</div>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-6 col-md-offset-4">
-								<button type="submit" class="btn btn-primary">Login</button>
-
-								<a class="btn btn-link" href="{{ url('/password/email') }}">Forgot Your Password?</a>
+							<div class="col-sm-offset-3 col-sm-6">
+								<button type="submit" class="btn btn-default">
+									<i class="fa fa-btn fa-sign-in"></i>Login
+								</button>
 							</div>
 						</div>
 					</form>
@@ -57,5 +47,4 @@
 			</div>
 		</div>
 	</div>
-</div>
 @endsection
