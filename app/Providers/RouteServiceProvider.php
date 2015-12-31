@@ -22,6 +22,8 @@ class RouteServiceProvider extends ServiceProvider {
 	 */
 	public function boot(Router $router)
 	{
+		$router->model('task', Task::class);
+
 		parent::boot($router);
 
 		//

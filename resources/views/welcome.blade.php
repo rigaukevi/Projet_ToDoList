@@ -1,4 +1,4 @@
-<html>
+<!--<html>
 	<head>
 		<title>Toudou</title>
 		<!--<style>
@@ -24,7 +24,7 @@
 					</ul>
 				</div><!--/.nav-collapse --
 			</div>
-		</div>-->
+		</div>--
 
 	</head>
 	<body>
@@ -36,4 +36,42 @@
 			</div>
 		</div>
 	</body>
-</html>
+</html> -->
+
+@extends('layouts.app')
+
+@section('content')
+
+    <div class="container" xmlns="http://www.w3.org/1999/html">
+		<div class="col-sm-offset-2 col-sm-8">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					Bienvenue
+				</div>
+
+				<div class="panel-body">
+					Merci de vous connecter pour accéder aux taches
+				</div>
+                </br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-default" >
+                        <a href="{{route('loginLink')}}">
+                        <i class="fa fa-btn fa-sign-in"></i>Connexion</a>
+                    </button>
+                </div>
+                </br>
+                <div class="text-center">
+                    <button type="button" class="btn btn-default" >
+                        <a href="{{route('registerLink')}}">
+                         <i class="fa fa-btn fa-key"></i>Inscription</a>
+                    </button>
+                </div>
+                </br>
+                </br>
+
+
+
+			</div>
+		</div>
+	</div>
+@endsection
