@@ -15,36 +15,49 @@
 	return view('welcome');
 })->middleware('guest');*/
 
-// Task Routes
-Route::get('/tasks', 'TaskController@index');
-Route::post('/task', 'TaskController@store');
-Route::delete('/task/{task}', 'TaskController@destroy');
 
-// Authentication Routes...
-//Route::get('auth/login', 'Auth\AuthController@getLogin');
-//Route::post('auth/login', 'Auth\AuthController@postLogin');
-//Route::get('auth/logout', 'Auth\AuthController@getLogout');
-
-// Registration Routes...
-//Route::get('auth/register', 'Auth\AuthController@getRegister');
-//Route::post('auth/register', 'Auth\AuthController@postRegister');
-
-Route::delete('/task/{task}', 'TaskController@destroy');
 
 Route::get('/',[
 	'as'=>'homeLink',
 	'uses'=>'LinkController@homeLink'
 ]);
 
-Route::get('/register',[
-	'as'=>'registerLink',
-	'uses'=>'LinkController@registerLink'
+Route::get('/home', [
+	'as'=> 'truehome',
+	'uses'=> 'LinkController@truehome'
+]);
+
+//Routes pour l'enregistrement
+
+Route::get('/login',[
+	'as'=>'loginLink',
+	'uses'=>'LinkController@loginLink'
+]);
+
+Route::get('auth/register', [
+	'as' => 'getRegister',
+	'uses' => 'Auth\AuthController@getRegister'
 ]);
 Route::post('auth/register', [
 	'as' => 'postRegister',
-	'uses' => 'LinkController@registerLink'
+	'uses' => 'Auth\AuthController@postRegister'
 ]);
 
+//routes pour l'authentification
+Route::get('auth/login', [
+		'as'=>'getLogin',
+	'uses'=>'Auth\AuthController@getLogin'
+]);
+
+Route::post('auth/login', [
+	'as'=>'postLogin',
+	'uses'=>'Auth\AuthController@postLogin'
+]);
+
+//Route de déconnexion
+Route::get('auth/logout', [
+	'as' =>'logout',
+	'uses' =>	'Auth\AuthController@getLogout']);
 
 
 //  About Routes
@@ -53,7 +66,19 @@ Route::get('/about',[
 	'uses'=>'LinkController@aboutLink'
 ]);
 
-Route::get('/login',[
-	'as'=>'loginLink',
-	'uses'=>'LinkController@loginLink'
+
+
+// Task Routes
+Route::get('/tasks',[
+	'as'=>'getTask',
+	'uses'=>'TaskController@index'
 ]);
+
+Route::post('/task',[
+	'as'=>'postTask',
+	'uses'=>'TaskController@store'
+]);
+
+Route::delete('/task/{task}', 'TaskController@destroy');
+
+

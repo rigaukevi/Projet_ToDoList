@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('app')
 
 @section('content')
 	<div class="container">
@@ -13,8 +13,9 @@
 					@include('common.errors')
 
 							<!-- New Task Form -->
-					<form action="/auth/login" method="POST" class="form-horizontal">
-						<!--{ { csrf_token() }}-->
+					<form method="POST" action="{{ url('/auth/login') }}" class="form-horizontal">
+						<input type="hidden" name="_token" value="{{ csrf_token() }}">
+
 
 								<!-- E-Mail Address -->
 						<div class="form-group">

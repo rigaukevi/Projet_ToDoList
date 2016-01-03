@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('app')
 
 @section('content')
 <div class="container-fluid" xmlns="http://www.w3.org/1999/html">
@@ -55,6 +55,7 @@
 						<div class="form-group text-center">
 							<div class="col-sm-offset-3 col-sm-6">
 								<button type="submit" class="btn btn-default">
+
 									<i class="fa fa-btn fa-key "></i>Inscription
 								</button>
 							</div>

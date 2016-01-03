@@ -13,11 +13,12 @@ class LinkController extends Controller{
     }
 
     public function aboutLink(){
-        return view('layouts/about');
+        return view('about');
 
     }
 
     public function homeLink(){
+
         return view('welcome');
 
     }
@@ -26,6 +27,14 @@ class LinkController extends Controller{
         return view('auth/login');
 
     }
+
+    public function truehome(){
+        return view('home');
+    }
+
+
+
+
 
 
 

@@ -2,24 +2,19 @@
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-
+use App\Repositories\TaskRepository;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 
 {
     /**
-     * The task repository instance.
-     *
-     * @var TaskRepository
+     * repertoire des taches
      */
     protected $tasks;
 
     /**
-     * Create a new controller instance.
-     *
-     * @param  TaskRepository $tasks
-     * @return void
+     * on cree un nv controlleur
      */
     public function __construct(TaskRepository $tasks)
     {
@@ -28,10 +23,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Display a list of all of the user's task.
-     *
-     * @param  Request  $request
-     * @return Response
+     * liste des taches pour les users
      */
     public function index(Request $request)
     {
@@ -40,10 +32,8 @@ class TaskController extends Controller
         ]);
     }
     /**
-     * Create a new task.
-     *
-     * @param  Request  $request
-     * @return Response
+     * cree la tache
+
      */
     public function store(Request $request)
     {
@@ -59,11 +49,7 @@ class TaskController extends Controller
     }
 
     /**
-     * Destroy the given task.
-     *
-     * @param  Request  $request
-     * @param  Task  $task
-     * @return Response
+     * pour detruire la tache
      */
     public function destroy(Request $request, Task $task)
     {

@@ -1,27 +1,34 @@
-@extends('layouts.app')
+@extends('app')
 
 @section('content')
     <div class="container">
         <div class="col-sm-offset-2 col-sm-8">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    New Task
+                    Nouvelle tâche
                 </div>
 
                 <div class="panel-body">
                     <!-- Display Validation Errors -->
                     @include('common.errors')
 
-                            <!-- New Task Form -->
-                    <form action="/task" method="POST" class="form-horizontal">
-                        {{ csrf_field() }}
+                            <!-- layout nouvelle tâche -->
+                    <form action="{{ url('/task') }}" method="POST" class="form-horizontal">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                                <!-- Task Name -->
+
+                                <!-- création de la tâche -->
                         <div class="form-group">
                             <label for="task-name" class="col-sm-3 control-label">Task</label>
-
                             <div class="col-sm-6">
                                 <input type="text" name="name" id="task-name" class="form-control" value="{{ old('task') }}">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-name" class="col-sm-3 control-label">Date d'échéance</label>
+
+                            <div class="col-sm-6">
+                                <input type="date" name="écheance" id="task-echeance" class="form-control" value="{{ old('task') }}">
                             </div>
                         </div>
 
@@ -41,19 +48,15 @@
             @if (count($tasks) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Current Tasks
+                        Les tâches
                     </div>
 
                     <div class="panel-body">
                         <table class="table table-striped task-table">
 
-                            <!-- Table Headings -->
-                            <thead>
-                            <th>Task</th>
-                            <th>&nbsp;</th>
-                            </thead>
 
-                            !-- Table Body -->
+
+                            <!-- Table Body -->
                             <tbody>
                             @foreach ($tasks as $task)
                                 <tr>
@@ -61,7 +64,7 @@
                                     <!-- Task Name -->
                                     <td class="table-text">
 
-                                        <div>{{ $task->name }}
+                                        <div>{{ $task->name }} </br> {{ $task->écheance }}
                                         </div>
 
                                     </td>
@@ -69,8 +72,7 @@
                                     <!-- Task Delete Button -->
                                     <td>
                                         <form action="/task/{{ $task->id }}" method="POST">
-                                            {{ csrf_field() }}
-                                            {{ method_field('DELETE') }}
+
 
                                             <button type="submit" id="delete-task-{{ $task->id }}" class="btn btn-danger">
                                                 <i class="fa fa-btn fa-trash"></i>Delete
