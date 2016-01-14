@@ -9,10 +9,10 @@
 
 
 				<div class="panel-body">
-					<!-- Display Validation Errors -->
+
 					@include('common.errors')
 
-							<!-- New Task Form -->
+							<!-- Login -->
 					<form method="POST" action="{{ url('/auth/login') }}" class="form-horizontal">
 						<input type="hidden" name="_token" value="{{ csrf_token() }}">
 

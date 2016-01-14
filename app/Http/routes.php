@@ -79,6 +79,9 @@ Route::post('/task',[
 	'uses'=>'TaskController@store'
 ]);
 
-Route::delete('/task/{task}', 'TaskController@destroy');
+Route::delete('/task/{task}',[
+	'as'=>'deleteTask',
+	'uses'=>'TaskController@destroy'
+]);
 
 

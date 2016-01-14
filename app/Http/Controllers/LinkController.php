@@ -39,5 +39,4 @@ class LinkController extends Controller{
 
 
 
-
 }

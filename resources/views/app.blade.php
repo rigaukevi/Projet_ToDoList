@@ -25,6 +25,11 @@
 			font-size: 20px;
 		}
 
+		.fa-btn2 {
+
+			font-size: 20px;
+		}
+
 		.table-text div {
 			padding-top: 6px;
 		}
@@ -66,12 +71,11 @@
 					@if (Auth::guest())
                         <li><a href="{{route('loginLink')}}"><i class="fa fa-btn fa-sign-in"></i>Connexion</a></li>
 						<li><a href="{{route('getRegister')}}"><i class="fa fa-btn fa-key"></i>Inscription</a></li>
-						<li><a href="{{route('aboutLink')}}"><i class="fa fa-btn fa-question"></i>About</a></li>
 					@else
 						<li class="navbar-text"><i class="fa fa-btn fa-user"></i>{{ Auth::user()->name }}</li>
 						<li><a href="{{route('getTask')}}"><i class="fa fa-btn fa-list"></i>Tâches</a></li>
 						<li><a href="{{route('logout')}}"><i class="fa fa-btn fa-sign-out"></i>Déconnection</a></li>
-                        <li><a href="{{route('aboutLink')}}"><i class="fa fa-btn fa-question"></i>About</a></li>
+                        <li><a href="{{route('aboutLink')}}"><i class="fa fa-btn fa-question"></i>A propos</a></li>
 					@endif
 				</ul>
 			</div>

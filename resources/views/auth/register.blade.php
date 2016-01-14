@@ -51,7 +51,7 @@
 						</div>
 						</br></br>
 
-						<!-- Register Button -->
+						<!-- inscription Button -->
 						<div class="form-group text-center">
 							<div class="col-sm-offset-3 col-sm-6">
 								<button type="submit" class="btn btn-default">

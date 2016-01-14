@@ -10,7 +10,12 @@
             <b>Kevin Rigaux et Bertrand Glineur</b> </br></br>
             T-PINI-503 - Technique Informatiques</br></br>
             Année académique 2015 - 2016 </br></br>
-            Dépôt GIT: <a href="https://github.com/rigaukevi/Projet_ToDoList.git" target="_blank">ICI</a>
+
+
+            <button type="button" class="btn btn-default" >
+                <a href="https://github.com/rigaukevi/Projet_ToDoList.git">
+                    <i class="fa fa-btn fa-link"></i>Dépôt GitHub</a>
+            </button>
         </p>
 
                 </div>
