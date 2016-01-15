@@ -11,7 +11,7 @@
 
                 @if (Auth::guest())
                     <div class="panel-body">
-                        Merci de vous connecter pour accéder aux tâches
+                        Merci de vous connectez pour accédé aux tâches
                     </div>
                     </br>
                     <div class="text-center">
